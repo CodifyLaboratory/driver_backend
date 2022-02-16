@@ -36,7 +36,6 @@ class RegisterSerializer(serializers.Serializer):
     # is_graduated = models.BooleanField(default=False)
 
 
-
     password = serializers.CharField(required=True, min_length=8)
     confirm_password = serializers.CharField(required=True, min_length=8, write_only=True)
 
