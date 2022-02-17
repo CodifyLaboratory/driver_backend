@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Student
 from django.core.validators import RegexValidator
-from groups.models import Group
+from group.models import Group
 
 
 class StudentSerializer(serializers.Serializer):

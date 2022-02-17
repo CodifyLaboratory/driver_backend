@@ -1,11 +1,13 @@
 from rest_framework import views, response, status
-
-from .serializer import RegisterSerializer
+from rest_framework.permissions import AllowAny
+from .serializer import MyUserSerializer
 
 
 class UserRegisterAPIView(views.APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request, *args, **kwargs):
-        serializer = RegisterSerializer(data=request.data)
+        serializer = MyUserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return response.Response(serializer.data, status=status.HTTP_201_CREATED)

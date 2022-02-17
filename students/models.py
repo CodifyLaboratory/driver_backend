@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
-from groups.models import Group
+from group.models import Group
 
 
 class Student(models.Model):
@@ -22,7 +22,7 @@ class Student(models.Model):
 
 # class StudentGroup(models.Model):
 #     student = models.ForeignKey(Student, on_delete=models.PROTECT)
-#     group = models.ForeignKey('groups.Group', on_delete=models.PROTECT)
+#     group = models.ForeignKey('group.Group', on_delete=models.PROTECT)
 #
 #     def __str__(self):
 #         return f"({self.student}/{self.group})"
