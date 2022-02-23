@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
 from studentgroup.models import StudentGroup
-from django.contrib.auth.models import User
 
 
 class About(models.Model):
