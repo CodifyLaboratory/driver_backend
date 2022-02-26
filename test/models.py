@@ -1,20 +1,6 @@
 from django.db import models
-# from education_base.models import Lesson
 from datetime import datetime
 from django.utils.translation import gettext_lazy as _
-
-# class Question(models.Model):
-#     title = models.CharField(max_length=255)
-#
-#
-# class Answer(models.Model):
-#     answer = models.CharField(max_length=255)
-#
-#
-# class Test(models.Model):
-#     question = models.ForeignKey(Question, on_delete=models.PROTECT)
-#     answer = models.ForeignKey(Answer, on_delete=models.PROTECT)
-#
 
 
 def image_save_path(instance, filename):
@@ -61,7 +47,7 @@ class Question(Updated):
     )
 
     test = models.ForeignKey(
-        Test, related_name='question', on_delete=models.DO_NOTHING)
+        Test, related_name='question', on_delete=models.CASCADE)
     title = models.CharField(
         max_length=255, verbose_name=_("Title"))
     date_created = models.DateTimeField(
@@ -81,7 +67,7 @@ class Answer(Updated):
         ordering = ["id"]
 
     question = models.ForeignKey(
-        Question, related_name='answer', on_delete=models.DO_NOTHING)
+        Question, related_name='answer', on_delete=models.CASCADE)
     answer_text = models.CharField(
         max_length=255, verbose_name=_("Answer Text"))
     is_right = models.BooleanField(

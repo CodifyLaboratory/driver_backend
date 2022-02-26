@@ -21,6 +21,7 @@ urlpatterns = [
         #path to our account's app endpoint
     path('about_user/', include('about_user.urls')),
     path('test/', include('test.urls', namespace='test')),
+    path('exam/', include('exam.urls', namespace='exam')),
 
     path('api/', include(router.urls), name='api'),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
