@@ -26,6 +26,7 @@ class QuestionAdmin(admin.ModelAdmin):
     fields = [
         'title',
         'test',
+        'image',
     ]
     list_display = [
         'title',

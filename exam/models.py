@@ -51,6 +51,7 @@ class Question(Updated):
         Exam, related_name='question', on_delete=models.DO_NOTHING)
     title = models.CharField(
         max_length=255, verbose_name=_("Title"))
+    image = models.ImageField(upload_to=image_save_path, null=True)
     date_created = models.DateTimeField(
         auto_now_add=True, verbose_name=_("Date Created"))
     is_active = models.BooleanField(

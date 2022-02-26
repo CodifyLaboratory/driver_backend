@@ -48,6 +48,7 @@ class Question(Updated):
 
     test = models.ForeignKey(
         Test, related_name='question', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=image_save_path, null=True)
     title = models.CharField(
         max_length=255, verbose_name=_("Title"))
     date_created = models.DateTimeField(
