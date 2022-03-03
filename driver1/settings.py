@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'news',
     'useful',
     'drf_yasg',
+    'comments',
+    'django_filters',
 
 
 ]
@@ -62,6 +64,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
 
     ),
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+    ]
 }
 
 
@@ -137,11 +143,11 @@ WSGI_APPLICATION = 'driver1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR + 'db.sqlite3',
-        #
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2', 'NAME': 'driver_db', 'USER': 'postgres',
-        #                  'PASSWORD': '123', 'HOST': 'localhost', 'PORT': '5432'
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR + 'db.sqlite3',
+        
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 'NAME': 'driver_db', 'USER': 'postgres',
+                         'PASSWORD': '123', 'HOST': 'localhost', 'PORT': '5432'
     }
 }
 
@@ -190,4 +196,3 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-

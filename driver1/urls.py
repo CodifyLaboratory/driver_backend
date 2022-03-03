@@ -5,10 +5,12 @@ from news.api.urls import news_router
 from driver1.settings import MEDIA_ROOT,MEDIA_URL
 from django.conf.urls.static import static
 from useful.api.urls import useful_router
+from comments.api.urls import comments_router
 
 router = routers.DefaultRouter()
 router.registry.extend(news_router.registry)
 router.registry.extend(useful_router.registry)
+router.registry.extend(comments_router.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -21,7 +23,7 @@ urlpatterns = [
         #path to our account's app endpoint
     path('about_user/', include('about_user.urls')),
 
-    path('api/', include(router.urls), name='api'),
+    path('api/', include(router.urls)),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
 
 
