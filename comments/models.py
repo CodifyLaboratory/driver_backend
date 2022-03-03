@@ -19,4 +19,4 @@ class Comment(models.Model):
         ordering = ('-created_date',)
 
     def __str__(self):
-        return 'Comment by {}'.format(self.author.first_name +''+ self.author.last_name)
+        return 'Comment by {}'.format(self.author.first_name +' '+ self.author.last_name)
