@@ -29,3 +29,7 @@ class NewsUpdateDeleteView(generics.GenericAPIView, mixins.RetrieveModelMixin, m
 
     def delete(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)
+
+
+
+    

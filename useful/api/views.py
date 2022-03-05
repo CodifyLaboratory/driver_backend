@@ -1,6 +1,4 @@
-from django.http.response import Http404
-from rest_framework import status, mixins, generics
-from rest_framework.response import Response
+from rest_framework import mixins, generics
 from useful.models import Useful
 from useful.api.serializers import UsefulSerializer
 
@@ -31,3 +29,5 @@ class UsefulUpdateDeleteView(generics.GenericAPIView, mixins.RetrieveModelMixin,
 
     def delete(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)
+
+
