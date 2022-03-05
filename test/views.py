@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from rest_framework import generics
-from .models import Test, Question, Answer
+from .models import Test, Question
 from .serializers import TestSerializer, RandomQuestionSerializer, QuestionSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response

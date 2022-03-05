@@ -3,8 +3,6 @@ from .models import Question, Answer, Test
 
 
 @admin.register(Test)
-
-
 class TestAdmin(admin.ModelAdmin):
     list_display = [
         'id',
@@ -21,7 +19,6 @@ class AnswerInlineModel(admin.TabularInline):
 
 
 @admin.register(Question)
-
 class QuestionAdmin(admin.ModelAdmin):
     fields = [
         'title',
@@ -39,7 +36,6 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 @admin.register(Answer)
-
 class AnswerAdmin(admin.ModelAdmin):
     list_display = [
         'answer_text',

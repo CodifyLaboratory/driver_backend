@@ -1,3 +1,4 @@
 from django.contrib import admin
+from useful.models import Useful
 
-# Register your models here.
+admin.site.register(Useful)

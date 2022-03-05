@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from useful.models import Useful
 from useful.api.serializers import UsefulSerializer
 
+
 class UsefulCreateListView(generics.GenericAPIView, mixins.CreateModelMixin, mixins.ListModelMixin):
     queryset = Useful.objects.all()
     serializer_class = UsefulSerializer
@@ -13,6 +14,7 @@ class UsefulCreateListView(generics.GenericAPIView, mixins.CreateModelMixin, mix
 
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
+
 
 class UsefulUpdateDeleteView(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
     queryset = Useful.objects.all()

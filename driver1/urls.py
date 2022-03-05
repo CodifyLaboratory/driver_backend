@@ -12,17 +12,14 @@ router.registry.extend(useful_router.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-        #path to djoser endpoints
+#path to djoser endpoints
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
     path('auth/', include('djoser.urls.jwt')),
-
-        #path to our account's app endpoint
+#path to our account's app endpoint
     path('about_user/', include('about_user.urls')),
     path('test/', include('test.urls', namespace='test')),
     path('exam/', include('exam.urls', namespace='exam')),
-
     path('api/', include(router.urls), name='api'),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
 

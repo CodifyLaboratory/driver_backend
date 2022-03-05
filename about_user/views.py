@@ -1,6 +1,4 @@
-
 from rest_framework import viewsets
-
 from .serializer import AboutSerializers
 from .models import About
 

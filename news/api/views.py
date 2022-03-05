@@ -1,8 +1,7 @@
-from django.http.response import Http404
-from rest_framework import status, mixins, generics
-from rest_framework.response import Response
+from rest_framework import mixins, generics
 from news.models import News
 from news.api.serializers import NewsSerializer
+
 
 class NewsCreateListView(generics.GenericAPIView, mixins.CreateModelMixin, mixins.ListModelMixin):
     queryset = News.objects.all()
@@ -13,6 +12,7 @@ class NewsCreateListView(generics.GenericAPIView, mixins.CreateModelMixin, mixin
 
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
+
 
 class NewsUpdateDeleteView(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
     queryset = News.objects.all()

@@ -3,7 +3,6 @@ from .models import Exam, Question
 from .serializers import ExamSerializer, RandomQuestionSerializer, QuestionSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
@@ -34,19 +33,3 @@ class ExamQuestion(APIView):
         question = Question.objects.filter(exam__title=kwargs['topic'])
         serializer = QuestionSerializer(question, many=True)
         return Response(serializer.data)
-
-
-'''
-    
-class ResumeViewSet(viewsets.ReadOnlyModelViewSet):
-
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
-
-    serializer_class = ResumeSerializer
-    queryset = Resume.objects.all()
-
-`def destroy
-pass
-
-'''

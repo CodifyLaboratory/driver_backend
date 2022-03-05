@@ -1,7 +1,7 @@
-from django.urls import path, include
+from django.urls import path
 from .views import Exam, RandomQuestion, ExamQuestion
 
-app_name='test'
+app_name = 'test'
 
 urlpatterns = [
     path('', Exam.as_view(), name='test'),
