@@ -21,7 +21,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['176.126.165.66', 'www/jakshyjol.kg', '127.0.0.1']
+ALLOWED_HOSTS = ["68.183.2.130", "127.0.0.1"]
 
 
 INSTALLED_APPS = [
@@ -137,12 +137,12 @@ WSGI_APPLICATION = 'driver1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'driver',
-        'USER': 'driveruser',
-        'PASSWORD': 'Blood1997kiral',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': env('DB_ENGINE'),
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
@@ -172,10 +172,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_ROOT = BASE_DIR + "/driver/static/media/"
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
