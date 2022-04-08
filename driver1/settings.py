@@ -21,7 +21,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["68.183.2.130", "127.0.0.1"]
+ALLOWED_HOSTS = ["68.183.2.130", "127.0.0.1", "188.166.86.75"]
 
 
 INSTALLED_APPS = [
@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djoser',
+    'corsheaders',
     'about_user',
     'studentgroup',
 
@@ -102,6 +103,7 @@ SIMPLE_JWT = {
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -179,3 +181,5 @@ MEDIA_ROOT = BASE_DIR + "/driver/static/media/"
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ORIGIN_ALLOW_ALL = True
