@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import Exam, Question
-from .serializers import ExamSerializer, RandomQuestionSerializer, QuestionSerializer
+from .models import Exam, Question, ExamTimer
+from .serializers import ExamSerializer, RandomQuestionSerializer, QuestionSerializer, ExamTimerSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
@@ -33,3 +33,9 @@ class ExamQuestion(APIView):
         question = Question.objects.filter(exam__title=kwargs['topic'])
         serializer = QuestionSerializer(question, many=True)
         return Response(serializer.data)
+
+
+class ExamTimer(generics.ListAPIView):
+
+    serializer_class = ExamTimerSerializer
+    queryset = ExamTimer.objects.all()

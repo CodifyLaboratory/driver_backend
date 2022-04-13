@@ -72,10 +72,22 @@ class Answer(Updated):
         Question, related_name='answer', on_delete=models.DO_NOTHING)
     answer_text = models.CharField(
         max_length=255, verbose_name=_("Answer Text"))
+    comment_for_right_answer = models.CharField(
+        max_length=255, verbose_name=_("Комментарий для правильного ответа"), default=None, blank=True
+    )
+    comment_for_wrong_answer = models.CharField(
+        max_length=255, verbose_name=_("Комментарий для неправильного ответа"), default=None, blank=True
+    )
     is_right = models.BooleanField(
         default=False)
 
     def __str__(self):
         return self.answer_text
 
+
+class ExamTimer(models.Model):
+    time_to_exam = models.IntegerField(default=40)
+
+    def __int__(self):
+        return self.time_to_exam
 

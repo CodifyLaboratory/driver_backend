@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Answer, Exam
+from .models import Question, Answer, Exam, ExamTimer
 
 
 @admin.register(Exam)
@@ -14,7 +14,9 @@ class AnswerInlineModel(admin.TabularInline):
     model = Answer
     fields = [
         'answer_text',
-        'is_right'
+        'is_right',
+        'comment_for_right_answer',
+        'comment_for_wrong_answer',
     ]
 
 
@@ -40,5 +42,14 @@ class AnswerAdmin(admin.ModelAdmin):
     list_display = [
         'answer_text',
         'is_right',
+        'comment_for_right_answer',
+        'comment_for_wrong_answer',
         'question',
+    ]
+
+
+@admin.register(ExamTimer)
+class ExamTimerAdmin(admin.ModelAdmin):
+    list_display = [
+        'time_to_exam',
     ]
