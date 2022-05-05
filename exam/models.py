@@ -48,7 +48,7 @@ class Question(Updated):
     )
 
     exam = models.ForeignKey(
-        Exam, related_name='question', on_delete=models.DO_NOTHING)
+        Exam, related_name='question', on_delete=models.CASCADE)
     title = models.CharField(
         max_length=255, verbose_name=_("Title"))
     image = models.ImageField(upload_to=image_save_path, null=True)
@@ -69,7 +69,7 @@ class Answer(Updated):
         ordering = ["id"]
 
     question = models.ForeignKey(
-        Question, related_name='answer', on_delete=models.DO_NOTHING)
+        Question, related_name='answer', on_delete=models.CASCADE)
     answer_text = models.CharField(
         max_length=255, verbose_name=_("Answer Text"))
     comment_for_right_answer = models.CharField(
