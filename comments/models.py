@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 from about_user.models import About
 from useful.models import Useful
@@ -15,6 +16,7 @@ class Comment(models.Model):
 
     class Meta:
         # sort comments in chronological order by default
+        verbose_name = 'Комментарии'
         ordering = ('-created_date',)
 
     def __str__(self):
