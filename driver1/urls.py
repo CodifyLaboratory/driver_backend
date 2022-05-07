@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 from useful.api.urls import useful_router
 from comments.api.urls import comments_router
 from common_base.api.urls import base_router
+from feedback.api.urls import feedback_router
 
 from . import settings
 
@@ -15,6 +16,7 @@ router.registry.extend(news_router.registry)
 router.registry.extend(useful_router.registry)
 router.registry.extend(comments_router.registry)
 router.registry.extend(base_router.registry)
+router.registry.extend(feedback_router.registry)
 
 urlpatterns = [
     path('driver_admin/', admin.site.urls),
