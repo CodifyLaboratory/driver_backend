@@ -8,6 +8,11 @@ djoser = "*"
 django-filter = "*"
 environ = "*"
 django = "*"
+django-environ = "*"
+django-cors-headers = "*"
+drf-yasg = "*"
+psycopg2 = "*"
+pillow = "*"
 
 [dev-packages]
 
